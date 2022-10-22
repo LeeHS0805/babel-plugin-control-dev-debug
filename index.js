@@ -4,7 +4,6 @@ module.exports = ({ types: t }) => {
             Identifier(path) {
                 const isDEBUG = path.node.name === 'DEBUG';
                 const isIfStatement = t.isIfStatement(path.parentPath);
-                console.log(isDEBUG, isIfStatement);
                 if (isDEBUG && isIfStatement) {
                     const stringNode = t.stringLiteral("DEBUG");
                     path.replaceWith(stringNode);
